@@ -30,8 +30,7 @@ type Order struct {
 	Reason   string `json:"reason,omitempty"`
 }
 
-// Store is deliberately in-memory. OrderFlow's point is demonstrating
-// event choreography and Saga-style rollback, not database persistence.
+
 type Store struct {
 	mu     sync.RWMutex
 	orders map[string]*Order
@@ -110,7 +109,7 @@ type createOrderRequest struct {
 	Currency string `json:"currency"`
 }
 
-// CreateOrder records the order as pending and publishes OrderCreated.
+
 func (h *Handler) CreateOrder(w http.ResponseWriter, r *http.Request) {
 	body, err := io.ReadAll(r.Body)
 	if err != nil {

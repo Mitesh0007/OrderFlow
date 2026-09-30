@@ -50,11 +50,11 @@ func main() {
 
 	publisher := events.NewPublisher(redisClient)
 
-	// Seed stock is intentionally unchanged.
+
 	store := inventory.NewStore(map[string]int{
-		"item_1": 10,
-		"item_2": 5,
-		"item_3": 0,
+		"item_1": 30,
+		"item_2": 30,
+		"item_3": 30,
 	})
 
 	handler := inventory.NewHandler(store, publisher)

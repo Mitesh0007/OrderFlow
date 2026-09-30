@@ -17,7 +17,6 @@ type reservation struct {
 	Quantity int
 }
 
-// Store holds current stock levels and outstanding reservations.
 type Store struct {
 	mu           sync.Mutex
 	stock        map[string]int
